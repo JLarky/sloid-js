@@ -78,6 +78,15 @@ importers:
     dependencies:
       babel-plugin-jsx-dom-expressions: 0.35.2
 
+  packages/sloid:
+    specifiers:
+      component-register: ~0.8.2
+      solid-js: workspace:*
+    dependencies:
+      component-register: 0.8.3
+    devDependencies:
+      solid-js: link:../solid
+
   packages/solid:
     specifiers:
       csstype: ^3.1.0

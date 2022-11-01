@@ -1,0 +1,37 @@
+{
+  "name": "sloid",
+  "description": "Sloid",
+  "author": "JLarky",
+  "license": "MIT",
+  "version": "0.0.2",
+  "type": "module",
+  "main": "dist/sloid.cjs",
+  "module": "dist/sloid.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "./browser/index": "./dist/browser-index.js",
+    "./node/index": "./dist/node-index.js",
+    "./browser/web": "./dist/browser-web.js",
+    "./node/web": "./dist/node-web.js",
+    "./dist/server-web.js": "./dist/sloid.js",
+    "./dist/*.cjs": "./dist/*.cjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "clean": "rimraf dist/",
+    "build": "rollup -c && tsc && cd ../.. && cp packages/solid/web/dist/server.js packages/sloid/dist/node-web.js && cp packages/solid/web/dist/web.js packages/sloid/dist/browser-web.js && cp packages/solid/dist/server.js packages/sloid/dist/node-index.js && cp packages/solid/dist/solid.js packages/sloid/dist/browser-index.js",
+    "build:all": "pnpm run clean && rollup -c && tsc"
+  },
+  "dependencies": {
+    "component-register": "~0.8.2"
+  },
+  "peerDependencies": {
+    "solid-js": "^1.0.0"
+  },
+  "devDependencies": {
+    "solid-js": "workspace:*"
+  }
+}
